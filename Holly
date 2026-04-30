@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holly Iong | Luxury Retail Strategist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxury: {
+                            dark: '#121212',
+                            muted: '#333333',
+                            gold: '#bfa888',
+                            light: '#f8f7f4'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow-subtle { text-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+            .img-subtle { opacity: 0.95; filter: brightness(0.98) contrast(1.05); }
+            .border-luxury { border-color: #bfa888; }
+        }
+    </style>
+</head>
+<body class="bg-luxury-light text-luxury-muted font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-serif text-xl text-luxury-dark">Holly Iong</a>
+            <div class="space-x-8">
+                <a href="index.html" class="text-luxury-dark hover:text-luxury-gold transition">Home</a>
+                <a href="experience.html" class="text-luxury-dark hover:text-luxury-gold transition">Experience</a>
+                <a href="contact.html" class="text-luxury-dark hover:text-luxury-gold transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <p class="text-luxury-gold tracking-widest uppercase text-sm mb-4">Luxury Travel Retail Leader</p>
+                <h1 class="font-serif text-[clamp(2rem,5vw,3.5rem)] leading-tight text-luxury-dark mb-6">
+                    Luxury Retail Strategist
+                </h1>
+                <h2 class="text-xl md:text-2xl font-light mb-6">
+                    Orchestrating Data-Driven Experiences in Global Travel Retail
+                </h2>
+                <p class="leading-relaxed mb-8 text-base">
+                    6-year LVMH DFS senior leadership professional specializing in APAC travel retail strategy, omnichannel digital transformation, high-net-worth clienteling, brand portfolio optimization and talent culture building. Integrating McKinsey value pool analysis, BCG growth matrix and Gartner hyper-personalization framework to deliver over $11M annual revenue and build award-winning service teams.
+                </p>
+                <div class="flex gap-4">
+                    <a href="experience.html" class="px-8 py-3 bg-luxury-dark text-white hover:bg-luxury-gold transition duration-300">View My Experience</a>
+                    <a href="contact.html" class="px-8 py-3 border border-luxury text-luxury-dark hover:bg-luxury-gold hover:text-white transition duration-300">Get In Touch</a>
+                </div>
+            </div>
+            <div class="order-1 md:order-2">
+                <!-- Replace src with your headshot image link -->
+                <img src="headshot.jpg" alt="Holly Iong Professional Headshot" class="w-full h-auto rounded-lg shadow-2xl img-subtle">
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Competencies -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h3 class="font-serif text-3xl text-center text-luxury-dark mb-16">Core Strategic Competencies</h3>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="text-center p-6 border-t border-luxury">
+                    <h4 class="font-serif text-xl mb-4">Travel Retail Strategy & GTM</h4>
+                    <p class="text-sm leading-relaxed">Brand market entry strategy, assortment planning, OTB budget allocation, sell-through & inventory turnover optimization aligned with BCG & McKinsey industry frameworks.</p>
+                </div>
+                <div class="text-center p-6 border-t border-luxury">
+                    <h4 class="font-serif text-xl mb-4">Omnichannel & CRM Transformation</h4>
+                    <p class="text-sm leading-relaxed">Digital clienteling, WeChat & RedNote ecosystem operation, KOS/KOC social media monetization, driving 76% CRM revenue growth to $1.9M annually.</p>
+                </div>
+                <div class="text-center p-6 border-t border-luxury">
+                    <h4 class="font-serif text-xl mb-4">Leadership & Experiential Retail</h4>
+                    <p class="text-sm leading-relaxed">High-performance team building, luxury service culture, VIP exclusive events, hyper-personalized customer experience per Gartner trend.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-luxury-dark text-white py-10">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm opacity-70">© 2025 Holly Iong | Luxury Retail Strategist. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
