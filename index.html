@@ -1,0 +1,1536 @@
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Retail Strategist | 精品旅游零售战略专家</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1A1A2E',
+                        secondary: '#16213E',
+                        accent: '#0F3460',
+                        gold: '#D4AF37',
+                        light: '#F5F5F5',
+                        dark: '#0F0F1A'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .transition-smooth {
+                transition: all 0.4s ease-in-out;
+            }
+            .hover-lift {
+                transition: transform 0.4s ease, box-shadow 0.4s ease;
+            }
+            .hover-lift:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .bg-gradient-luxury {
+                background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+            }
+            .text-gradient-gold {
+                background: linear-gradient(90deg, #D4AF37 0%, #F2D272 50%, #D4AF37 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .border-gold {
+                border-color: #D4AF37;
+            }
+            .animate-fade-in {
+                animation: fadeIn 1s ease-in-out;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .animate-slide-in {
+                animation: slideIn 0.8s ease-in-out;
+            }
+            @keyframes slideIn {
+                from { opacity: 0; transform: translateX(-30px); }
+                to { opacity: 1; transform: translateX(0); }
+            }
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #D4AF37;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .counter-value {
+            transition: all 0.5s ease;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #D4AF37;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 0;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #D4AF37;
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .service-card:hover {
+            border-color: #D4AF37;
+            transform: translateY(-5px);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .language-toggle {
+            transition: all 0.3s ease;
+        }
+        
+        .language-toggle:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-light text-primary">
+    <!-- Language Toggle -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="language-toggle" class="language-toggle flex items-center space-x-2 bg-white bg-opacity-90 px-4 py-2 rounded-full shadow-md">
+            <span class="text-primary" id="current-lang">中文</span>
+            <i class="fa fa-globe text-gold"></i>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full bg-white bg-opacity-95 shadow-md z-40 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-semibold text-primary flex items-center">
+                <span class="text-gradient-gold">Holly Iong</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link active text-primary hover:text-accent transition-smooth">首页</a>
+                <a href="#insights" class="nav-link text-primary hover:text-accent transition-smooth">行业洞察</a>
+                <a href="#solutions" class="nav-link text-primary hover:text-accent transition-smooth">解决方案</a>
+                <a href="#mentorship" class="nav-link text-primary hover:text-accent transition-smooth">导师计划</a>
+                <a href="#contact" class="nav-link text-primary hover:text-accent transition-smooth">联系我们</a>
+            </div>
+            
+            <!-- Mobile Navigation Toggle -->
+            <button class="md:hidden text-primary focus:outline-none" id="menu-toggle">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="md:hidden hidden bg-white w-full shadow-md" id="mobile-menu">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#home" class="text-primary hover:text-accent transition-smooth py-2 border-b border-gray-200">首页</a>
+                <a href="#insights" class="text-primary hover:text-accent transition-smooth py-2 border-b border-gray-200">行业洞察</a>
+                <a href="#solutions" class="text-primary hover:text-accent transition-smooth py-2 border-b border-gray-200">解决方案</a>
+                <a href="#mentorship" class="text-primary hover:text-accent transition-smooth py-2 border-b border-gray-200">导师计划</a>
+                <a href="#contact" class="text-primary hover:text-accent transition-smooth py-2">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-luxury text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        <span class="text-gradient-gold">Luxury Retail Strategist</span><br>
+                        <span class="text-2xl md:text-3xl lg:text-4xl font-light">精品旅游零售战略专家</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 max-w-lg text-gray-300">数据驱动的体验设计师，将精品旅游零售从"交易中心"转变为"体验中心"</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#solutions" class="bg-gold text-primary px-8 py-4 rounded-md hover:bg-opacity-90 transition-smooth font-semibold">
+                            探索解决方案
+                        </a>
+                        <a href="#contact" class="border border-gold text-gold px-8 py-4 rounded-md hover:bg-gold hover:text-primary transition-smooth font-semibold">
+                            联系我们
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center animate-slide-in">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 bg-gold rounded-full opacity-10 absolute top-4 left-4"></div>
+                        <div class="w-64 h-64 md:w-80 md:h-80 bg-primary rounded-full overflow-hidden relative z-10 border-4 border-gold">
+                            <div class="w-64 h-64 md:w-80 md:h-80 bg-primary rounded-full overflow-hidden relative z-10 border-4 border-gold">
+  <!-- Cartoon Beauty KOL Professional Photo -->
+  <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/9ed0c524887940a583aa85c93adf8788~tplv-a9rns2rl98-image.image?lk3s=8e244e95&amp;rcl=2026050100071476BFA0BAA3D6B5E390DF&amp;rrcfp=e75484ac&amp;x-expires=1778170036&amp;x-signature=7rJbGPN%2FXVAuANUV7i0UsbhWE2E%3D" alt="Beauty KOL Luxury Retail Strategist" class="w-full h-full object-cover">
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Key Metrics -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-sm hover-lift">
+                    <div class="text-4xl font-bold text-gold mb-2 counter-value" data-target="11">0</div>
+                    <p class="text-lg">百万美元年营收</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-sm hover-lift">
+                    <div class="text-4xl font-bold text-gold mb-2 counter-value" data-target="76">0</div>
+                    <p class="text-lg">CRM收入增长百分比</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-sm hover-lift">
+                    <div class="text-4xl font-bold text-gold mb-2 counter-value" data-target="54">0</div>
+                    <p class="text-lg">客户复购率</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8">
+                        <span class="text-gradient-gold">关于我</span>
+                    </h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        我是一位数据驱动的精品零售领导者，拥有6年高端品牌管理经验，专注于将高接触客户互动转化为可衡量的业务增长。通过全渠道策略、体验式活动和数据驱动的指导，我帮助品牌在竞争激烈的旅游零售市场中脱颖而出。
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6">
+                        我热衷于培养包容性和赋能文化，这一基础可以直接转移到以客户为中心、以生态系统为基础的零售环境中。根据麦肯锡2024年时尚报告，我深入了解"静奢风"和"体验式零售"如何改变免税店动线。
+                    </p>
+                    <div class="flex items-center space-x-4 mt-8">
+                        <a href="#" class="text-accent hover:text-gold transition-smooth">
+                            <i class="fa fa-linkedin-square text-3xl"></i>
+                        </a>
+                        <a href="mailto:iongkain@ymail.com" class="text-accent hover:text-gold transition-smooth">
+                            <i class="fa fa-envelope text-3xl"></i>
+                        </a>
+                        <a href="tel:+85368182957" class="text-accent hover:text-gold transition-smooth">
+                            <i class="fa fa-phone text-3xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gray-100 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-semibold mb-6 text-accent">专业背景</h3>
+                        <div class="space-y-6">
+                            <div class="timeline-item">
+                                <h4 class="text-xl font-semibold text-primary">销售经理 | DFS集团 (LVMH集团)</h4>
+                                <p class="text-gray-600 mb-2">2024年3月 - 至今</p>
+                                <p class="text-gray-700">领导30人团队，管理33个奢侈美妆和太阳镜品牌，超越2026年YTD预算38%</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="text-xl font-semibold text-primary">管理培训生 &amp; 产品销售经理 | DFS集团</h4>
+                                <p class="text-gray-600 mb-2">2019年9月 - 2024年3月</p>
+                                <p class="text-gray-700">负责Bottega Veneta、Chloe、Fendi和Saint Laurent四家精品店，超越预算26%</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="text-xl font-semibold text-primary">教育背景</h4>
+                                <p class="text-gray-600 mb-2">加州大学洛杉矶分校 | 伦敦大学学院</p>
+                                <p class="text-gray-700">政治学学士学位 | 交换生项目</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Insights Section -->
+    <section id="insights" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="text-gradient-gold">行业洞察</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Insight Card 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover-lift">
+                    <div class="text-4xl text-gold mb-4">
+                        <i class="fa fa-line-chart"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">超个性化趋势</h3>
+                    <p class="text-gray-700 mb-4">
+                        根据Gartner的研究，到2028年，60%的品牌将使用代理式AI提供简化的一对一互动。这标志着基于渠道的营销时代的结束，迎来个性化、自主参与的新时代。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">Gartner, 2026</span>
+                        <a href="#" class="text-accent hover:text-gold transition-smooth">
+                            阅读更多 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Insight Card 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover-lift">
+                    <div class="text-4xl text-gold mb-4">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">精品旅行者演变</h3>
+                    <p class="text-gray-700 mb-4">
+                        麦肯锡2024年研究显示，精品旅游市场35%由净资产在10万至100万美元之间的" aspirational luxury travelers"组成，他们愿意将更大比例的财富用于高端旅行选择。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">McKinsey, 2024</span>
+                        <a href="#" class="text-accent hover:text-gold transition-smooth">
+                            阅读更多 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Insight Card 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover-lift">
+                    <div class="text-4xl text-gold mb-4">
+                        <i class="fa fa-shopping-bag"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">旅游零售市场挑战</h3>
+                    <p class="text-gray-700 mb-4">
+                        Kearney报告显示，尽管2024年旅客数量达到创纪录的95亿人次，但旅游零售销售仅达到741亿美元，比2019年水平低13%。这标志着销售增长连续第三年落后于流量恢复。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">Kearney, 2025</span>
+                        <a href="#" class="text-accent hover:text-gold transition-smooth">
+                            阅读更多 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Insight Card 4 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover-lift">
+                    <div class="text-4xl text-gold mb-4">
+                        <i class="fa fa-mobile"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">AI驱动的客户关系管理</h3>
+                    <p class="text-gray-700 mb-4">
+                        研究表明，80%的客户更有可能从提供个性化体验的品牌购买。AI驱动的CRM市场预计到2025年将达到827亿美元，这一增长由企业保持竞争力和提供卓越客户体验的需求推动。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">SuperAGI, 2025</span>
+                        <a href="#" class="text-accent hover:text-gold transition-smooth">
+                            阅读更多 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Insight Card 5 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover-lift">
+                    <div class="text-4xl text-gold mb-4">
+                        <i class="fa fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">地缘政治影响</h3>
+                    <p class="text-gray-700 mb-4">
+                        地缘政治重新排序、地缘经济分裂、社会两极分化、加速技术和原子化气候响应这五大宏观力量正在对市场施加压力，直接影响旅客情绪、行为和运营响应。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">Kearney, 2025</span>
+                        <a href="#" class="text-accent hover:text-gold transition-smooth">
+                            阅读更多 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Insight Card 6 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover-lift">
+                    <div class="text-4xl text-gold mb-4">
+                        <i class="fa fa-trophy"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">静奢风与体验式零售</h3>
+                    <p class="text-gray-700 mb-4">
+                        麦肯锡强调，高质量的在线购物注重速度、快速配送和减少摩擦，但缺乏灵魂和人类情感的部分。精品零售是关于"情感，而非交易"，这一理念正在重塑免税店的设计和运营。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-500">McKinsey, 2024</span>
+                        <a href="#" class="text-accent hover:text-gold transition-smooth">
+                            阅读更多 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-accent text-white px-8 py-4 rounded-md hover:bg-gold transition-smooth font-semibold">
+                    查看更多洞察
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="text-gradient-gold">解决方案</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Solution Card 1 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-4xl text-gold mb-6">
+                        <i class="fa fa-rocket"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">市场进入战略</h3>
+                    <p class="text-gray-700 mb-6">
+                        结合BCG的"全球消费者信心指数"，为品牌提供针对亚太地区主要航点的布局建议，优化资源分配和市场渗透策略。
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-gray-700">价值池分析与机会识别</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-gray-700">竞争格局分析与差异化定位</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-gray-700">渠道策略与合作伙伴选择</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-gray-700">阶段性实施路线图</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-block text-accent hover:text-gold transition-smooth font-semibold">
+                        了解更多 <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Solution Card 2 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-4xl text-gold mb-6">
+                        <i class="fa fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">品牌定位与叙事</h3>
+                    <p class="text-gray-700 mb-6">
+                        利用Gartner的"消费者文化分析"，协助品牌在有限的免税空间内极大化品牌价值，创造独特的品牌体验和情感连接。
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-gray-700">品牌DNA提炼与核心价值重塑</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-gray-700">沉浸式空间设计与体验规划</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-gray-700">情感化叙事与故事营销策略</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-gray-700">视觉识别系统优化</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-block text-accent hover:text-gold transition-smooth font-semibold">
+                        了解更多 <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Solution Card 3 -->
+                <div class="service-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="text-4xl text-gold mb-6">
+                        <i class="fa fa-bullhorn"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">营销效能优化</h3>
+                    <p class="text-gray-700 mb-6">
+                        专注于"全通路"转型，解决如何将线上预订与线下提货无缝对接，提升客户旅程体验和转化率。
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-gray-700">全渠道整合策略设计</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-gray-700">客户数据平台构建与分析</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-gray-700">个性化营销自动化实施</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-gray-700">ROI测量与优化框架</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-block text-accent hover:text-gold transition-smooth font-semibold">
+                        了解更多 <i class="fa fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Case Study Highlight -->
+            <div class="mt-20 bg-gradient-luxury text-white p-10 rounded-lg shadow-xl">
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4">案例研究：数字客户关系管理转型</h3>
+                        <p class="text-lg mb-6 text-gray-300">
+                            通过开发和实施全面的数字营销策略，我们帮助一家领先的免税零售商将年度CRM归因收入提高了76%，达到190万美元，并将客户复购率提升至54%。
+                        </p>
+                        <div class="grid grid-cols-2 gap-6 mb-8">
+                            <div>
+                                <div class="text-3xl font-bold text-gold mb-2">76%</div>
+                                <p class="text-gray-300">CRM收入增长</p>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-gold mb-2">54%</div>
+                                <p class="text-gray-300">客户复购率</p>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-gold mb-2">190万</div>
+                                <p class="text-gray-300">美元CRM收入</p>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-gold mb-2">25</div>
+                                <p class="text-gray-300">关键意见销售顾问</p>
+                            </div>
+                        </div>
+                        <a href="#" class="inline-block bg-gold text-primary px-6 py-3 rounded-md hover:bg-opacity-90 transition-smooth font-semibold">
+                            查看完整案例
+                        </a>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-filter backdrop-blur-sm">
+                            <h4 class="text-xl font-semibold mb-4 text-gold">关键成果</h4>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                                    <span>设计并推出了16个供应商资助的激励计划，推动同比生产力提升40%</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                                    <span>通过数据分析优化库存周转，成功提升特定航站旗舰店15%的坪效</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                                    <span>创建了微信和小红书的客户参与手册，培训了63位客户专家</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                                    <span>通过CRM数据分析识别高价值客户，组织5场独家活动，产生15.2万美元收入</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentorship Section -->
+    <section id="mentorship" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="text-gradient-gold">导师计划</span>
+            </h2>
+            
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                        <div class="text-4xl text-gold mb-6">
+                            <i class="fa fa-briefcase"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">职涯教练</h3>
+                        <p class="text-gray-700 mb-6">
+                            针对零售高管提供领导力培训，强调在高度变动（VUCA）的旅游环境中的情绪韧性和战略思维。
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                                <span class="text-gray-700">高管领导力发展与辅导</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                                <span class="text-gray-700">基于麦肯锡金字塔原理的销售简报技巧</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                                <span class="text-gray-700">精品服务心态（Luxury Mindset）培养</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                                <span class="text-gray-700">变革管理与组织韧性建设</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                                <span class="text-gray-700">数据驱动决策与业务分析能力提升</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="inline-block bg-accent text-white px-6 py-3 rounded-md hover:bg-gold transition-smooth font-semibold">
+                            申请咨询
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                        <div class="text-4xl text-gold mb-6">
+                            <i class="fa fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">公益导师计划</h3>
+                        <p class="text-gray-700 mb-6">
+                            针对新人，标榜"Gap the Bridge between Campus and Luxury"，帮助年轻人才顺利进入精品零售行业。
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                                <span class="text-gray-700">行业入门指导与职业规划</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                                <span class="text-gray-700">简历优化与面试技巧培训</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                                <span class="text-gray-700">精品零售专业知识与技能培养</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                                <span class="text-gray-700">行业人脉拓展与社交技能提升</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-gold mt-1 mr-3"></i>
+                                <span class="text-gray-700">实习与就业机会推荐</span>
+                            </li>
+                        </ul>
+                        <a href="#" class="inline-block bg-accent text-white px-6 py-3 rounded-md hover:bg-gold transition-smooth font-semibold">
+                            申请参与
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonials -->
+            <div class="mt-20">
+                <h3 class="text-2xl md:text-3xl font-bold mb-10 text-center">学员反馈</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="flex items-center mb-6">
+                            <div class="text-gold">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-6 italic">
+                            "Holly的指导帮助我重新思考了我们的精品零售策略。她的数据驱动方法和对客户体验的深刻理解，帮助我们在竞争激烈的市场中找到了差异化优势。"
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white mr-4">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">张总监</h4>
+                                <p class="text-sm text-gray-500">某国际美妆品牌零售总监</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="flex items-center mb-6">
+                            <div class="text-gold">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-6 italic">
+                            "作为一名刚毕业的学生，公益导师计划为我提供了宝贵的行业洞察和职业指导。Holly的耐心和专业知识帮助我成功进入了理想的精品零售公司。"
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white mr-4">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">李同学</h4>
+                                <p class="text-sm text-gray-500">某奢侈品集团管培生</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="flex items-center mb-6">
+                            <div class="text-gold">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-6 italic">
+                            "Holly的数字营销工作坊彻底改变了我们的客户互动方式。她教授的微信和小红书运营策略帮助我们的CRM销售额增长了超过50%。"
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white mr-4">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">王经理</h4>
+                                <p class="text-sm text-gray-500">某免税集团客户关系经理</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-luxury text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <span class="text-gradient-gold">联系我们</span>
+            </h2>
+            
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <div class="bg-white bg-opacity-10 p-8 rounded-lg backdrop-filter backdrop-blur-sm h-full">
+                        <h3 class="text-2xl font-semibold mb-6">联系信息</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-gold text-2xl mr-4">
+                                    <i class="fa fa-map-marker"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">当前位置</h4>
+                                    <p class="text-gray-300">澳门特别行政区</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-gold text-2xl mr-4">
+                                    <i class="fa fa-plane"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">可 relocation</h4>
+                                    <p class="text-gray-300">新加坡</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-gold text-2xl mr-4">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">预计入职时间</h4>
+                                    <p class="text-gray-300">2026年6月</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-gold text-2xl mr-4">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">电话</h4>
+                                    <p class="text-gray-300">+853 6818 2957</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-gold text-2xl mr-4">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">邮箱</h4>
+                                    <p class="text-gray-300">iongkain@ymail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-gold text-2xl mr-4">
+                                    <i class="fa fa-linkedin-square"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">LinkedIn</h4>
+                                    <p class="text-gray-300">linkedin.com/in/hollyiong</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-gold text-2xl mr-4">
+                                    <i class="fa fa-language"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">语言能力</h4>
+                                    <p class="text-gray-300">英语、粤语、普通话（流利）</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold mb-4">专业技能</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">iWork套件</span>
+                                <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Microsoft Office</span>
+                                <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Power BI</span>
+                                <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">MicroStrategy</span>
+                                <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">Salesforce</span>
+                                <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">WeCom</span>
+                                <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">POS系统</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-semibold mb-6 text-primary">发送消息</h3>
+                        
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-gold focus:ring focus:ring-gold focus:ring-opacity-20" required="">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">邮箱</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-gold focus:ring focus:ring-gold focus:ring-opacity-20" required="">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">主题</label>
+                                <input type="text" id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-gold focus:ring focus:ring-gold focus:ring-opacity-20" required="">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-2">消息</label>
+                                <textarea id="message" name="message" rows="6" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-gold focus:ring focus:ring-gold focus:ring-opacity-20" required=""></textarea>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <input type="checkbox" id="privacy" name="privacy" class="h-4 w-4 text-gold focus:ring-gold border-gray-300 rounded" required="">
+                                <label for="privacy" class="ml-2 block text-gray-700">
+                                    我同意隐私政策并同意被联系。
+                                </label>
+                            </div>
+                            
+                            <div>
+                                <button type="submit" class="w-full bg-gold text-primary px-8 py-4 rounded-md hover:bg-opacity-90 transition-smooth font-semibold">
+                                    发送消息
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <div id="form-success" class="hidden mt-8 p-6 bg-green-100 text-green-800 rounded-md">
+                            <div class="flex items-center">
+                                <i class="fa fa-check-circle text-2xl mr-3"></i>
+                                <div>
+                                    <h3 class="text-xl font-semibold">消息发送成功！</h3>
+                                    <p>感谢您的联系。我将尽快回复您。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-semibold mb-2 text-gradient-gold">Holly Iong</h3>
+                    <p class="text-gray-300">Luxury Retail Strategist | 精品旅游零售战略专家</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-white hover:text-gold transition-smooth">
+                        <i class="fa fa-linkedin-square text-2xl"></i>
+                    </a>
+                    <a href="mailto:iongkain@ymail.com" class="text-white hover:text-gold transition-smooth">
+                        <i class="fa fa-envelope text-2xl"></i>
+                    </a>
+                    <a href="tel:+85368182957" class="text-white hover:text-gold transition-smooth">
+                        <i class="fa fa-phone text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2026 Holly Iong. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2');
+                navbar.classList.remove('py-4');
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.add('py-4');
+                navbar.classList.remove('py-2');
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+        
+        // Counter Animation
+        const counterElements = document.querySelectorAll('.counter-value');
+        let animated = false;
+        
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                rect.bottom >= 0
+            );
+        }
+        
+        function animateCounters() {
+            if (animated) return;
+            
+            if (isInViewport(counterElements[0])) {
+                counterElements.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    let count = 0;
+                    const increment = target / 50;
+                    
+                    const updateCount = () => {
+                        if (count < target) {
+                            count += increment;
+                            counter.textContent = Math.ceil(count);
+                            setTimeout(updateCount, 30);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    };
+                    
+                    updateCount();
+                });
+                
+                animated = true;
+            }
+        }
+        
+        // Check on load and scroll
+        window.addEventListener('load', animateCounters);
+        window.addEventListener('scroll', animateCounters);
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contact-form');
+        const formSuccess = document.getElementById('form-success');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simulate form submission
+            setTimeout(() => {
+                // Reset form
+                contactForm.reset();
+                
+                // Show success message
+                contactForm.classList.add('hidden');
+                formSuccess.classList.remove('hidden');
+                
+                // Scroll to success message
+                formSuccess.scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+        });
+        
+        // Language Toggle
+        const languageToggle = document.getElementById('language-toggle');
+        const currentLang = document.getElementById('current-lang');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+        
+        // Comprehensive translations object
+        const translations = {
+            '中文': {
+                'home': '首页',
+                'insights': '行业洞察',
+                'solutions': '解决方案',
+                'mentorship': '导师计划',
+                'contact': '联系我们',
+                'lang': 'English',
+                'heroTitle': 'Luxury Retail Strategist',
+                'heroSubtitle': '精品旅游零售战略专家',
+                'heroDesc': '数据驱动的体验设计师，将精品旅游零售从"交易中心"转变为"体验中心"',
+                'exploreBtn': '探索解决方案',
+                'contactBtn': '联系我们',
+                'metrics1': '百万美元年营收',
+                'metrics2': 'CRM收入增长百分比',
+                'metrics3': '客户复购率',
+                'aboutTitle': '关于我',
+                'aboutText1': '我是一位数据驱动的精品零售领导者，拥有6年高端品牌管理经验，专注于将高接触客户互动转化为可衡量的业务增长。通过全渠道策略、体验式活动和数据驱动的指导，我帮助品牌在竞争激烈的旅游零售市场中脱颖而出。',
+                'aboutText2': '我热衷于培养包容性和赋能文化，这一基础可以直接转移到以客户为中心、以生态系统为基础的零售环境中。根据麦肯锡2024年时尚报告，我深入了解"静奢风"和"体验式零售"如何改变免税店动线。',
+                'backgroundTitle': '专业背景',
+                'exp1Title': '销售经理 | DFS集团 (LVMH集团)',
+                'exp1Date': '2024年3月 - 至今',
+                'exp1Desc': '领导30人团队，管理33个奢侈美妆和太阳镜品牌，超越2026年YTD预算38%',
+                'exp2Title': '管理培训生 & 产品销售经理 | DFS集团',
+                'exp2Date': '2019年9月 - 2024年3月',
+                'exp2Desc': '负责Bottega Veneta、Chloe、Fendi和Saint Laurent四家精品店，超越预算26%',
+                'eduTitle': '教育背景',
+                'eduDate': '加州大学洛杉矶分校 | 伦敦大学学院',
+                'eduDesc': '政治学学士学位 | 交换生项目',
+                'insightsTitle': '行业洞察',
+                'insight1Title': '超个性化趋势',
+                'insight1Desc': '根据Gartner的研究，到2028年，60%的品牌将使用代理式AI提供简化的一对一互动。这标志着基于渠道的营销时代的结束，迎来个性化、自主参与的新时代。',
+                'insight1Source': 'Gartner, 2026',
+                'insight1Read': '阅读更多',
+                'insight2Title': '精品旅行者演变',
+                'insight2Desc': '麦肯锡2024年研究显示，精品旅游市场35%由净资产在10万至100万美元之间的"aspirational luxury travelers"组成，他们愿意将更大比例的财富用于高端旅行选择。',
+                'insight2Source': 'McKinsey, 2024',
+                'insight2Read': '阅读更多',
+                'insight3Title': '旅游零售市场挑战',
+                'insight3Desc': 'Kearney报告显示，尽管2024年旅客数量达到创纪录的95亿人次，但旅游零售销售仅达到741亿美元，比2019年水平低13%。这标志着销售增长连续第三年落后于流量恢复。',
+                'insight3Source': 'Kearney, 2025',
+                'insight3Read': '阅读更多',
+                'insight4Title': 'AI驱动的客户关系管理',
+                'insight4Desc': '研究表明，80%的客户更有可能从提供个性化体验的品牌购买。AI驱动的CRM市场预计到2025年将达到827亿美元，这一增长由企业保持竞争力和提供卓越客户体验的需求推动。',
+                'insight4Source': 'SuperAGI, 2025',
+                'insight4Read': '阅读更多',
+                'insight5Title': '地缘政治影响',
+                'insight5Desc': '地缘政治重新排序、地缘经济分裂、社会两极分化、加速技术和原子化气候响应这五大宏观力量正在对市场施加压力，直接影响旅客情绪、行为和运营响应。',
+                'insight5Source': 'Kearney, 2025',
+                'insight5Read': '阅读更多',
+                'insight6Title': '静奢风与体验式零售',
+                'insight6Desc': '麦肯锡强调，高质量的在线购物注重速度、快速配送和减少摩擦，但缺乏灵魂和人类情感的部分。精品零售是关于"情感，而非交易"，这一理念正在重塑免税店的设计和运营。',
+                'insight6Source': 'McKinsey, 2024',
+                'insight6Read': '阅读更多',
+                'moreInsightsBtn': '查看更多洞察',
+                'solutionsTitle': '解决方案',
+                'solution1Title': '市场进入战略',
+                'solution1Desc': '结合BCG的"全球消费者信心指数"，为品牌提供针对亚太地区主要航点的布局建议，优化资源分配和市场渗透策略。',
+                'solution1Item1': '价值池分析与机会识别',
+                'solution1Item2': '竞争格局分析与差异化定位',
+                'solution1Item3': '渠道策略与合作伙伴选择',
+                'solution1Item4': '阶段性实施路线图',
+                'solution1More': '了解更多',
+                'solution2Title': '品牌定位与叙事',
+                'solution2Desc': '利用Gartner的"消费者文化分析"，协助品牌在有限的免税空间内极大化品牌价值，创造独特的品牌体验和情感连接。',
+                'solution2Item1': '品牌DNA提炼与核心价值重塑',
+                'solution2Item2': '沉浸式空间设计与体验规划',
+                'solution2Item3': '情感化叙事与故事营销策略',
+                'solution2Item4': '视觉识别系统优化',
+                'solution2More': '了解更多',
+                'solution3Title': '营销效能优化',
+                'solution3Desc': '专注于"全通路"转型，解决如何将线上预订与线下提货无缝对接，提升客户旅程体验和转化率。',
+                'solution3Item1': '全渠道整合策略设计',
+                'solution3Item2': '客户数据平台构建与分析',
+                'solution3Item3': '个性化营销自动化实施',
+                'solution3Item4': 'ROI测量与优化框架',
+                'solution3More': '了解更多',
+                'caseStudyTitle': '案例研究：数字客户关系管理转型',
+                'caseStudyDesc': '通过开发和实施全面的数字营销策略，我们帮助一家领先的免税零售商将年度CRM归因收入提高了76%，达到190万美元，并将客户复购率提升至54%。',
+                'caseStudyMetric1': 'CRM收入增长',
+                'caseStudyMetric2': '客户复购率',
+                'caseStudyMetric3': '美元CRM收入',
+                'caseStudyMetric4': '关键意见销售顾问',
+                'caseStudyBtn': '查看完整案例',
+                'caseStudyResults': '关键成果',
+                'caseStudyResult1': '设计并推出了16个供应商资助的激励计划，推动同比生产力提升40%',
+                'caseStudyResult2': '通过数据分析优化库存周转，成功提升特定航站旗舰店15%的坪效',
+                'caseStudyResult3': '创建了微信和小红书的客户参与手册，培训了63位客户专家',
+                'caseStudyResult4': '通过CRM数据分析识别高价值客户，组织5场独家活动，产生15.2万美元收入',
+                'mentorshipTitle': '导师计划',
+                'mentorship1Title': '职涯教练',
+                'mentorship1Desc': '针对零售高管提供领导力培训，强调在高度变动（VUCA）的旅游环境中的情绪韧性和战略思维。',
+                'mentorship1Item1': '高管领导力发展与辅导',
+                'mentorship1Item2': '基于麦肯锡金字塔原理的销售简报技巧',
+                'mentorship1Item3': '精品服务心态（Luxury Mindset）培养',
+                'mentorship1Item4': '变革管理与组织韧性建设',
+                'mentorship1Item5': '数据驱动决策与业务分析能力提升',
+                'mentorship1Btn': '申请咨询',
+                'mentorship2Title': '公益导师计划',
+                'mentorship2Desc': '针对新人，标榜"Gap the Bridge between Campus and Luxury"，帮助年轻人才顺利进入精品零售行业。',
+                'mentorship2Item1': '行业入门指导与职业规划',
+                'mentorship2Item2': '简历优化与面试技巧培训',
+                'mentorship2Item3': '精品零售专业知识与技能培养',
+                'mentorship2Item4': '行业人脉拓展与社交技能提升',
+                'mentorship2Item5': '实习与就业机会推荐',
+                'mentorship2Btn': '申请参与',
+                'testimonialsTitle': '学员反馈',
+                'testimonial1': '"Holly的指导帮助我重新思考了我们的精品零售策略。她的数据驱动方法和对客户体验的深刻理解，帮助我们在竞争激烈的市场中找到了差异化优势。"',
+                'testimonial1Name': '张总监',
+                'testimonial1Title': '某国际美妆品牌零售总监',
+                'testimonial2': '"作为一名刚毕业的学生，公益导师计划为我提供了宝贵的行业洞察和职业指导。Holly的耐心和专业知识帮助我成功进入了理想的精品零售公司。"',
+                'testimonial2Name': '李同学',
+                'testimonial2Title': '某奢侈品集团管培生',
+                'testimonial3': '"Holly的数字营销工作坊彻底改变了我们的客户互动方式。她教授的微信和小红书运营策略帮助我们的CRM销售额增长了超过50%。"',
+                'testimonial3Name': '王经理',
+                'testimonial3Title': '某免税集团客户关系经理',
+                'contactSectionTitle': '联系我们',
+                'contactInfoTitle': '联系信息',
+                'location': '当前位置',
+                'locationValue': '澳门特别行政区',
+                'relocation': '可 relocation',
+                'relocationValue': '新加坡',
+                'startDate': '预计入职时间',
+                'startDateValue': '2026年6月',
+                'phone': '电话',
+                'phoneValue': '+853 6818 2957',
+                'email': '邮箱',
+                'emailValue': 'iongkain@ymail.com',
+                'linkedin': 'LinkedIn',
+                'linkedinValue': 'linkedin.com/in/hollyiong',
+                'languages': '语言能力',
+                'languagesValue': '英语、粤语、普通话（流利）',
+                'skills': '专业技能',
+                'sendMessageTitle': '发送消息',
+                'nameLabel': '姓名',
+                'emailLabel': '邮箱',
+                'subjectLabel': '主题',
+                'messageLabel': '消息',
+                'privacyLabel': '我同意隐私政策并同意被联系。',
+                'sendBtn': '发送消息',
+                'formSuccessTitle': '消息发送成功！',
+                'formSuccessMsg': '感谢您的联系。我将尽快回复您。',
+                'footerTitle': 'Luxury Retail Strategist | 精品旅游零售战略专家',
+                'copyright': '© 2026 Holly Iong. All rights reserved.'
+            },
+            'English': {
+                'home': 'Home',
+                'insights': 'Insights',
+                'solutions': 'Solutions',
+                'mentorship': 'Mentorship',
+                'contact': 'Contact',
+                'lang': '中文',
+                'heroTitle': 'Luxury Retail Strategist',
+                'heroSubtitle': 'Travel Retail Expert',
+                'heroDesc': 'Data-driven experience designer transforming luxury travel retail from "transaction centers" to "experience hubs"',
+                'exploreBtn': 'Explore Solutions',
+                'contactBtn': 'Contact Me',
+                'metrics1': 'Million USD Annual Revenue',
+                'metrics2': 'CRM Revenue Growth %',
+                'metrics3': 'Customer Repeat Purchase Rate',
+                'aboutTitle': 'About Me',
+                'aboutText1': 'I am a data-driven luxury retail leader with 6 years of premium brand management experience, focusing on translating high-touch client engagement into measurable business growth. Through omnichannel strategies, experiential events, and data-informed coaching, I help brands stand out in the competitive travel retail market.',
+                'aboutText2': 'I am passionate about fostering inclusive, empowering cultures — a foundation directly transferable to customer-first, ecosystem-based retail environments. According to McKinsey\'s 2024 fashion report, I deeply understand how "quiet luxury" and "experiential retail" are transforming duty-free store layouts.',
+                'backgroundTitle': 'Professional Background',
+                'exp1Title': 'Sales Manager | DFS Group (LVMH Group)',
+                'exp1Date': 'Mar 2024 - Present',
+                'exp1Desc': 'Leading a team of 30 across 33 luxury beauty and sunglasses brands, exceeding 2026 YTD budget by 38%',
+                'exp2Title': 'Management Trainee & Product Sales Manager | DFS Group',
+                'exp2Date': 'Sep 2019 - Mar 2024',
+                'exp2Desc': 'Store in charge of Bottega Veneta, Chloe, Fendi, and Saint Laurent (4 key boutiques), exceeding budget by 26%',
+                'eduTitle': 'Education',
+                'eduDate': 'University of California, Los Angeles | University College London',
+                'eduDesc': 'B.A. Political Science | Exchange Program',
+                'insightsTitle': 'Industry Insights',
+                'insight1Title': 'Hyper-Personalization Trends',
+                'insight1Desc': 'According to Gartner, by 2028, 60% of brands will use agentic AI to deliver streamlined one-to-one interactions. This marks the end of channel-based marketing as we know it, ushering in a new era of personalized, autonomous engagement.',
+                'insight1Source': 'Gartner, 2026',
+                'insight1Read': 'Read More',
+                'insight2Title': 'Luxury Traveler Evolution',
+                'insight2Desc': 'McKinsey\'s 2024 research shows that 35% of the luxury travel market consists of "aspirational luxury travelers" with net worth between $100,000 and $1 million, who are willing to spend a larger proportion of their wealth on high-end travel options.',
+                'insight2Source': 'McKinsey, 2024',
+                'insight2Read': 'Read More',
+                'insight3Title': 'Travel Retail Market Challenges',
+                'insight3Desc': 'Kearney reports that despite passenger numbers reaching a record 9.5 billion in 2024, travel retail sales only reached $74.1 billion, representing a 13% shortfall compared to 2019 levels. This marks the third straight year that sales growth has lagged behind traffic recovery.',
+                'insight3Source': 'Kearney, 2025',
+                'insight3Read': 'Read More',
+                'insight4Title': 'AI-Driven Customer Relationship Management',
+                'insight4Desc': 'Studies show that 80% of customers are more likely to make a purchase from a brand that offers personalized experiences. The AI-driven CRM market is expected to reach $82.7 billion by 2025, driven by businesses\' need to stay competitive and provide exceptional customer experiences.',
+                'insight4Source': 'SuperAGI, 2025',
+                'insight4Read': 'Read More',
+                'insight5Title': 'Geopolitical Impacts',
+                'insight5Desc': 'Five macro forces are exerting pressure on the market: deepening geopolitical reordering, geo-economic fragmentation, social polarization, accelerating technology, and atomized climate response. These factors directly affect passenger sentiment, behavior, and operational responses.',
+                'insight5Source': 'Kearney, 2025',
+                'insight5Read': 'Read More',
+                'insight6Title': 'Quiet Luxury & Experiential Retail',
+                'insight6Desc': 'McKinsey emphasizes that high-quality online shopping is about speed, quick delivery, and limited friction, but lacks the soul and human emotion. Luxury retail is about "emotions, not transactions" — a philosophy that is reshaping duty-free store design and operations.',
+                'insight6Source': 'McKinsey, 2024',
+                'insight6Read': 'Read More',
+                'moreInsightsBtn': 'View More Insights',
+                'solutionsTitle': 'Solutions',
+                'solution1Title': 'Market Entry Strategy',
+                'solution1Desc': 'Combining BCG\'s "Global Consumer Confidence Index" to provide brands with layout recommendations for major Asian-Pacific hubs, optimizing resource allocation and market penetration strategies.',
+                'solution1Item1': 'Value Pool Analysis & Opportunity Identification',
+                'solution1Item2': 'Competitive Landscape Analysis & Differentiation',
+                'solution1Item3': 'Channel Strategy & Partner Selection',
+                'solution1Item4': 'Phased Implementation Roadmap',
+                'solution1More': 'Learn More',
+                'solution2Title': 'Brand Positioning & Narrative',
+                'solution2Desc': 'Leveraging Gartner\'s "Consumer Culture Analysis" to help brands maximize brand value within limited duty-free spaces, creating unique brand experiences and emotional connections.',
+                'solution2Item1': 'Brand DNA Extraction & Core Value Reinvention',
+                'solution2Item2': 'Immersive Space Design & Experience Planning',
+                'solution2Item3': 'Emotional Storytelling & Narrative Marketing',
+                'solution2Item4': 'Visual Identity System Optimization',
+                'solution2More': 'Learn More',
+                'solution3Title': 'Marketing Effectiveness Optimization',
+                'solution3Desc': 'Focusing on "omnichannel" transformation, solving how to seamlessly connect online booking with offline pickup, enhancing customer journey experience and conversion rates.',
+                'solution3Item1': 'Omnichannel Integration Strategy Design',
+                'solution3Item2': 'Customer Data Platform Building & Analysis',
+                'solution3Item3': 'Personalized Marketing Automation Implementation',
+                'solution3Item4': 'ROI Measurement & Optimization Framework',
+                'solution3More': 'Learn More',
+                'caseStudyTitle': 'Case Study: Digital CRM Transformation',
+                'caseStudyDesc': 'By developing and implementing a comprehensive digital marketing strategy, we helped a leading duty-free retailer increase annual CRM-attributed revenue by 76% to $1.9 million and lift customer repeat purchase rate to 54%.',
+                'caseStudyMetric1': 'CRM Revenue Growth',
+                'caseStudyMetric2': 'Customer Repeat Rate',
+                'caseStudyMetric3': 'USD CRM Revenue',
+                'caseStudyMetric4': 'Key Opinion Sales Associates',
+                'caseStudyBtn': 'View Full Case Study',
+                'caseStudyResults': 'Key Results',
+                'caseStudyResult1': 'Designed and launched 16 vendor-funded incentive programs, driving 40% YoY productivity gain',
+                'caseStudyResult2': 'Optimized inventory turnover through data analysis, successfully improving坪效 by 15% at specific terminal flagships',
+                'caseStudyResult3': 'Created WeChat and Xiaohongshu customer engagement playbooks, training 63 client experts',
+                'caseStudyResult4': 'Identified high-value customers through CRM data analysis, organized 5 exclusive events, generating $152,000 in revenue',
+                'mentorshipTitle': 'Mentorship Programs',
+                'mentorship1Title': 'Career Coaching',
+                'mentorship1Desc': 'Providing leadership training for retail executives, emphasizing emotional resilience and strategic thinking in the highly volatile (VUCA) travel environment.',
+                'mentorship1Item1': 'Executive Leadership Development & Coaching',
+                'mentorship1Item2': 'McKinsey Pyramid Principle-Based Sales Presentation Skills',
+                'mentorship1Item3': 'Luxury Mindset Cultivation',
+                'mentorship1Item4': 'Change Management & Organizational Resilience Building',
+                'mentorship1Item5': 'Data-Driven Decision Making & Business Analysis Skills',
+                'mentorship1Btn': 'Apply for Consultation',
+                'mentorship2Title': 'Pro Bono Mentorship Program',
+                'mentorship2Desc': 'Targeted at newcomers, advocating "Gap the Bridge between Campus and Luxury" to help young talents successfully enter the luxury retail industry.',
+                'mentorship2Item1': 'Industry Entry Guidance & Career Planning',
+                'mentorship2Item2': 'Resume Optimization & Interview Skills Training',
+                'mentorship2Item3': 'Luxury Retail Professional Knowledge & Skills Development',
+                'mentorship2Item4': 'Industry Network Expansion & Social Skills Enhancement',
+                'mentorship2Item5': 'Internship & Job Opportunity Recommendations',
+                'mentorship2Btn': 'Apply to Participate',
+                'testimonialsTitle': 'Testimonials',
+                'testimonial1': '"Holly\'s guidance helped me rethink our luxury retail strategy. Her data-driven approach and deep understanding of customer experience helped us find a competitive advantage in the market."',
+                'testimonial1Name': 'Director Zhang',
+                'testimonial1Title': 'Retail Director, International Beauty Brand',
+                'testimonial2': '"As a recent graduate, the pro bono mentorship program provided me with valuable industry insights and career guidance. Holly\'s patience and expertise helped me successfully enter my dream luxury retail company."',
+                'testimonial2Name': 'Student Li',
+                'testimonial2Title': 'Management Trainee, Luxury Group',
+                'testimonial3': '"Holly\'s digital marketing workshop completely transformed our customer engagement approach. The WeChat and Xiaohongshu operation strategies she taught helped our CRM sales grow by over 50%."',
+                'testimonial3Name': 'Manager Wang',
+                'testimonial3Title': 'Customer Relationship Manager, Duty-Free Group',
+                'contactSectionTitle': 'Contact Me',
+                'contactInfoTitle': 'Contact Information',
+                'location': 'Current Location',
+                'locationValue': 'Macau SAR',
+                'relocation': 'Open to Relocation',
+                'relocationValue': 'Singapore',
+                'startDate': 'Potential Starting Date',
+                'startDateValue': 'June 2026',
+                'phone': 'Phone',
+                'phoneValue': '+853 6818 2957',
+                'email': 'Email',
+                'emailValue': 'iongkain@ymail.com',
+                'linkedin': 'LinkedIn',
+                'linkedinValue': 'linkedin.com/in/hollyiong',
+                'languages': 'Language Skills',
+                'languagesValue': 'English, Cantonese, Mandarin (Fluent)',
+                'skills': 'Professional Skills',
+                'sendMessageTitle': 'Send a Message',
+                'nameLabel': 'Name',
+                'emailLabel': 'Email',
+                'subjectLabel': 'Subject',
+                'messageLabel': 'Message',
+                'privacyLabel': 'I agree to the privacy policy and consent to being contacted.',
+                'sendBtn': 'Send Message',
+                'formSuccessTitle': 'Message Sent Successfully!',
+                'formSuccessMsg': 'Thank you for contacting me. I will get back to you as soon as possible.',
+                'footerTitle': 'Luxury Retail Strategist | Travel Retail Expert',
+                'copyright': '© 2026 Holly Iong. All rights reserved.'
+            }
+        };
+        
+        // Function to update all text elements on the page
+        function updateLanguage(lang) {
+            // Update navigation links
+            navLinks[0].textContent = translations[lang]['home'];
+            navLinks[1].textContent = translations[lang]['insights'];
+            navLinks[2].textContent = translations[lang]['solutions'];
+            navLinks[3].textContent = translations[lang]['mentorship'];
+            navLinks[4].textContent = translations[lang]['contact'];
+            
+            // Update mobile navigation links
+            mobileNavLinks[0].textContent = translations[lang]['home'];
+            mobileNavLinks[1].textContent = translations[lang]['insights'];
+            mobileNavLinks[2].textContent = translations[lang]['solutions'];
+            mobileNavLinks[3].textContent = translations[lang]['mentorship'];
+            mobileNavLinks[4].textContent = translations[lang]['contact'];
+            
+            // Update hero section
+            document.querySelector('#home h1 span').textContent = translations[lang]['heroTitle'];
+            document.querySelector('#home h1 + span').textContent = translations[lang]['heroSubtitle'];
+            document.querySelector('#home p.text-xl').textContent = translations[lang]['heroDesc'];
+            document.querySelectorAll('#home .flex.flex-wrap.gap-4 a')[0].textContent = translations[lang]['exploreBtn'];
+            document.querySelectorAll('#home .flex.flex-wrap.gap-4 a')[1].textContent = translations[lang]['contactBtn'];
+            
+            // Update metrics
+            const metrics = document.querySelectorAll('#home .grid.grid-cols-1.md\\:grid-cols-3.gap-8 p');
+            metrics[0].textContent = translations[lang]['metrics1'];
+            metrics[1].textContent = translations[lang]['metrics2'];
+            metrics[2].textContent = translations[lang]['metrics3'];
+            
+            // Update about section
+            document.querySelector('section:nth-of-type(2) h2 span').textContent = translations[lang]['aboutTitle'];
+            const aboutTexts = document.querySelectorAll('section:nth-of-type(2) p.text-lg');
+            aboutTexts[0].textContent = translations[lang]['aboutText1'];
+            aboutTexts[1].textContent = translations[lang]['aboutText2'];
+            
+            // Update professional background
+            document.querySelector('section:nth-of-type(2) h3').textContent = translations[lang]['backgroundTitle'];
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems[0].querySelector('h4').textContent = translations[lang]['exp1Title'];
+            timelineItems[0].querySelector('p.text-gray-600').textContent = translations[lang]['exp1Date'];
+            timelineItems[0].querySelector('p.text-gray-700').textContent = translations[lang]['exp1Desc'];
+            
+            timelineItems[1].querySelector('h4').textContent = translations[lang]['exp2Title'];
+            timelineItems[1].querySelector('p.text-gray-600').textContent = translations[lang]['exp2Date'];
+            timelineItems[1].querySelector('p.text-gray-700').textContent = translations[lang]['exp2Desc'];
+            
+            timelineItems[2].querySelector('h4').textContent = translations[lang]['eduTitle'];
+            timelineItems[2].querySelector('p.text-gray-600').textContent = translations[lang]['eduDate'];
+            timelineItems[2].querySelector('p.text-gray-700').textContent = translations[lang]['eduDesc'];
+            
+            // Update insights section
+            document.querySelector('#insights h2 span').textContent = translations[lang]['insightsTitle'];
+            const insightCards = document.querySelectorAll('#insights .grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3.gap-8 > div');
+            
+            for (let i = 0; i < insightCards.length; i++) {
+                const card = insightCards[i];
+                const titleKey = `insight${i+1}Title`;
+                const descKey = `insight${i+1}Desc`;
+                const sourceKey = `insight${i+1}Source`;
+                const readKey = `insight${i+1}Read`;
+                
+                if (translations[lang][titleKey]) {
+                    card.querySelector('h3').textContent = translations[lang][titleKey];
+                    card.querySelector('p.text-gray-700').textContent = translations[lang][descKey];
+                    card.querySelector('span.text-sm').textContent = translations[lang][sourceKey];
+                    card.querySelector('a').textContent = translations[lang][readKey] + ' ' + card.querySelector('a').innerHTML.split(' ')[1];
+                }
+            }
+            
+            document.querySelector('#insights .text-center a').textContent = translations[lang]['moreInsightsBtn'];
+            
+            // Update solutions section
+            document.querySelector('#solutions h2 span').textContent = translations[lang]['solutionsTitle'];
+            const solutionCards = document.querySelectorAll('#solutions .grid.grid-cols-1.md\\:grid-cols-3.gap-8 > div');
+            
+            for (let i = 0; i < solutionCards.length; i++) {
+                const card = solutionCards[i];
+                const titleKey = `solution${i+1}Title`;
+                const descKey = `solution${i+1}Desc`;
+                const moreKey = `solution${i+1}More`;
+                
+                if (translations[lang][titleKey]) {
+                    card.querySelector('h3').textContent = translations[lang][titleKey];
+                    card.querySelector('p.text-gray-700').textContent = translations[lang][descKey];
+                    card.querySelector('a').textContent = translations[lang][moreKey] + ' ' + card.querySelector('a').innerHTML.split(' ')[1];
+                    
+                    // Update list items
+                    const items = card.querySelectorAll('li span');
+                    for (let j = 0; j < items.length; j++) {
+                        const itemKey = `solution${i+1}Item${j+1}`;
+                        if (translations[lang][itemKey]) {
+                            items[j].textContent = translations[lang][itemKey];
+                        }
+                    }
+                }
+            }
+            
+            // Update case study
+            const caseStudy = document.querySelector('#solutions .mt-20');
+            caseStudy.querySelector('h3').textContent = translations[lang]['caseStudyTitle'];
+            caseStudy.querySelector('p.text-lg').textContent = translations[lang]['caseStudyDesc'];
+            
+            const caseMetrics = caseStudy.querySelectorAll('.grid.grid-cols-2.gap-6 p');
+            caseMetrics[0].textContent = translations[lang]['caseStudyMetric1'];
+            caseMetrics[1].textContent = translations[lang]['caseStudyMetric2'];
+            caseMetrics[2].textContent = translations[lang]['caseStudyMetric3'];
+            caseMetrics[3].textContent = translations[lang]['caseStudyMetric4'];
+            
+            caseStudy.querySelector('a').textContent = translations[lang]['caseStudyBtn'];
+            
+            const caseResults = caseStudy.querySelector('h4');
+            caseResults.textContent = translations[lang]['caseStudyResults'];
+            
+            const caseResultItems = caseStudy.querySelectorAll('ul li span');
+            caseResultItems[0].textContent = translations[lang]['caseStudyResult1'];
+            caseResultItems[1].textContent = translations[lang]['caseStudyResult2'];
+            caseResultItems[2].textContent = translations[lang]['caseStudyResult3'];
+            caseResultItems[3].textContent = translations[lang]['caseStudyResult4'];
+            
+            // Update mentorship section
+            document.querySelector('#mentorship h2 span').textContent = translations[lang]['mentorshipTitle'];
+            const mentorshipCards = document.querySelectorAll('#mentorship .flex.flex-col.md\\:flex-row.gap-12 > div');
+            
+            for (let i = 0; i < mentorshipCards.length; i++) {
+                const card = mentorshipCards[i];
+                const titleKey = `mentorship${i+1}Title`;
+                const descKey = `mentorship${i+1}Desc`;
+                const btnKey = `mentorship${i+1}Btn`;
+                
+                if (translations[lang][titleKey]) {
+                    card.querySelector('h3').textContent = translations[lang][titleKey];
+                    card.querySelector('p.text-gray-700').textContent = translations[lang][descKey];
+                    card.querySelector('a').textContent = translations[lang][btnKey];
+                    
+                    // Update list items
+                    const items = card.querySelectorAll('li span');
+                    for (let j = 0; j < items.length; j++) {
+                        const itemKey = `mentorship${i+1}Item${j+1}`;
+                        if (translations[lang][itemKey]) {
+                            items[j].textContent = translations[lang][itemKey];
+                        }
+                    }
+                }
+            }
+            
+            // Update testimonials
+            document.querySelector('#mentorship .mt-20 h3').textContent = translations[lang]['testimonialsTitle'];
+            const testimonialCards = document.querySelectorAll('#mentorship .grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3.gap-8 > div');
+            
+            const testimonialKeys = ['testimonial1', 'testimonial2', 'testimonial3'];
+            const testimonialNameKeys = ['testimonial1Name', 'testimonial2Name', 'testimonial3Name'];
+            const testimonialTitleKeys = ['testimonial1Title', 'testimonial2Title', 'testimonial3Title'];
+            
+            for (let i = 0; i < testimonialCards.length; i++) {
+                const card = testimonialCards[i];
+                card.querySelector('p.text-gray-700').textContent = translations[lang][testimonialKeys[i]];
+                card.querySelector('h4').textContent = translations[lang][testimonialNameKeys[i]];
+                card.querySelector('p.text-sm').textContent = translations[lang][testimonialTitleKeys[i]];
+            }
+            
+            // Update contact section
+            document.querySelector('#contact h2 span').textContent = translations[lang]['contactSectionTitle'];
+            document.querySelector('#contact .md\\:w-1\\/2:first-child h3').textContent = translations[lang]['contactInfoTitle'];
+            
+            const contactItems = document.querySelectorAll('#contact .space-y-6 > div');
+            const contactLabels = [
+                { key: 'location', value: 'locationValue' },
+                { key: 'relocation', value: 'relocationValue' },
+                { key: 'startDate', value: 'startDateValue' },
+                { key: 'phone', value: 'phoneValue' },
+                { key: 'email', value: 'emailValue' },
+                { key: 'linkedin', value: 'linkedinValue' },
+                { key: 'languages', value: 'languagesValue' }
+            ];
+            
+            for (let i = 0; i < contactItems.length; i++) {
+                const item = contactItems[i];
+                if (contactLabels[i]) {
+                    item.querySelector('h4').textContent = translations[lang][contactLabels[i].key];
+                    item.querySelector('p').textContent = translations[lang][contactLabels[i].value];
+                }
+            }
+            
+            document.querySelector('#contact .mt-8 h4').textContent = translations[lang]['skills'];
+            
+            // Update contact form
+            document.querySelector('#contact .md\\:w-1\\/2:last-child h3').textContent = translations[lang]['sendMessageTitle'];
+            
+            const formLabels = document.querySelectorAll('#contact-form label');
+            formLabels[0].textContent = translations[lang]['nameLabel'];
+            formLabels[1].textContent = translations[lang]['emailLabel'];
+            formLabels[2].textContent = translations[lang]['subjectLabel'];
+            formLabels[3].textContent = translations[lang]['messageLabel'];
+            formLabels[4].textContent = translations[lang]['privacyLabel'];
+            
+            document.querySelector('#contact-form button').textContent = translations[lang]['sendBtn'];
+            
+            // Update form success message
+            document.querySelector('#form-success h3').textContent = translations[lang]['formSuccessTitle'];
+            document.querySelector('#form-success p').textContent = translations[lang]['formSuccessMsg'];
+            
+            // Update footer
+            document.querySelector('footer h3').textContent = translations[lang]['footerTitle'];
+            document.querySelector('footer p').textContent = translations[lang]['copyright'];
+        }
+        
+        languageToggle.addEventListener('click', () => {
+            const current = currentLang.textContent;
+            const newLang = translations[current]['lang'];
+            
+            currentLang.textContent = newLang;
+            
+            // Update all text on the page
+            updateLanguage(newLang);
+        });
+        
+        // Initialize with English
+        updateLanguage('English');
+    </script>
+
+</body></html>
